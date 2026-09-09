@@ -58,7 +58,7 @@ WITH unpivoted AS (
 SELECT DISTINCT
     CAST(raw_tanggal AS DATE) AS Tanggal,
     Lokasi,
-    CAST(REPLACE(REPLACE(raw_harga, '.', ''), ',', '.') AS DOUBLE) AS Harga
+    CAST(raw_harga AS DOUBLE) AS Harga
 FROM unpivoted
 WHERE No = '#'
 ORDER BY Tanggal ASC;
@@ -89,4 +89,12 @@ plt.xticks(rotation=45)
 plt.grid(True, linestyle="--", alpha=0.5)
 plt.tight_layout()
 
-plt.show()
+
+
+# TUGAS INDIVIDU:
+# - hilangkan koma titik dari harga (20%)
+# - pilih komoditas lain selain 'Beras Premium' (20%)
+# - panjangkan jangka waktu, minimal 3 bulan (20%)
+# - tampilkan grafik harga dari beberapa lokasi/pasar sekaligus (20%)
+# - tuliskan analisis/ulasan sederhana (20%)
+# pengumpulan dalam python notebook (*.pynb) atau pyton source file (*.py)
