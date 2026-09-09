@@ -1,0 +1,2336 @@
+   <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SISKAPERBAPO</title>
+
+  <!-- Custom styles for this template -->
+  <script defer src="https://umami.indagjatim.com/script.js" data-website-id="eb3a7f07-7942-4d85-a724-e5c4e3e9d318"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Bootstrap 3.4.1 from CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <link href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="https://siskaperbapo.jatimprov.go.id/assets/css/style.css" rel="stylesheet">
+
+  <!-- Bootstrap 3.4.1 JS from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap.js"></script>
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style type="text/css">
+    .jumbotron {
+      background-image: url("https://siskaperbapo.jatimprov.go.id/assets/images/header2019.jpg");
+      height: 116px;
+      margin-bottom: 10px;
+      background-position: center top;
+      background-size: 100% 116px;
+    }
+
+    .navbar {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .jumbotron {
+        height: 60px;
+        background-size: 100% 60px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .sdright {
+        padding-left: 0px;
+      }
+    }
+
+    .page_detail {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    .page_detail img {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://siskaperbapo.jatimprov.go.id">SISKAPERBAPO</a>
+        </div>
+
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tabel <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+
+                <li><a href="https://siskaperbapo.jatimprov.go.id/harga/tabel">Harga Konsumen (per Area)</a></li>
+                <li><a href="https://siskaperbapo.jatimprov.go.id/harga-komoditas">Harga Konsumen (per Komoditas)</a></li>
+                <li><a href="/produsen/tabel">Harga Produsen</a></li>
+                <!-- <li><a href="/ketersediaan/tabel">Ketersediaan</a></li> -->
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grafik <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="https://siskaperbapo.jatimprov.go.id/harga/grafik">Harga Konsumen</a></li>
+                <li><a href="/produsen/grafik">Harga Produsen</a></li>
+                <!--<li><a href="/ketersediaan/grafik">Ketersediaan</a></li>-->
+              </ul>
+            </li>
+            
+            <li><a href="https://siskaperbapo.jatimprov.go.id/tren">Tren</a></li>
+            <!--
+          <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Analisis <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="/harga/tabel">Harga Konsumen (per Area)</a></li>
+                  <li><a href="/harga-komoditas">Harga Konsumen (per Komoditas)</a></li>
+                  <li><a href="/produsen/tabel">Harga Produsen</a></li>                 
+                </ul>
+          </li>
+		 -->
+            <li><a href="/info">Informasi</a></li>
+
+            <!-- <li><a href="/ketersediaan">Ketersediaan</a></li> -->
+            <li><a href="/profilpasar">Profil Pasar</a></li>
+            <li><a href="/display/show">Display</a></li>
+            <li><a href="https://siskaperbapo.jatimprov.go.id/panduan_manual_SISKAPERBAPO.pdf">Panduan</a></li>
+          </ul>
+                      <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://siskaperbapo.jatimprov.go.id/login2.php">Login</a></li>
+            </ul>
+          
+        </div><!--/.nav-collapse -->
+
+      </div><!--/.container-fluid -->
+    </div>
+          <div class="jumbotron">
+      </div>
+    
+    <!-- Main component for a primary marketing message or call to action -->
+            <ol class="breadcrumb">
+          <li><a href="/">Home</a></li>
+          <li>Harga-komoditas</li>
+                  </ol>
+        <script type="text/javascript" src="https://siskaperbapo.jatimprov.go.id/assets/datetimepicker/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="https://siskaperbapo.jatimprov.go.id/assets/datetimepicker/js/locales/bootstrap-datetimepicker.id.js" charset="UTF-8"></script>
+<link href="https://siskaperbapo.jatimprov.go.id/assets/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#datepicker').datetimepicker({
+      format: 'yyyy-mm-dd',
+      autoclose: true,
+      minView: 2,
+      startView: 2,
+      pickTime: false
+    });
+  });
+</script>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading panel-title">
+    Harga Komoditas
+  </div>
+
+  <div class="panel-body">
+    <form class="form-inline" id="form1" method="post" action="https://siskaperbapo.jatimprov.go.id/harga-komoditas">
+      <input type="hidden" name="csrf_token" value="6c2944a74af150f5dcd550ebc58ff13bdc695219f83fc6390c8dbbd9822f37c0">      <div class="form-group">
+        <label for="exampleInputEmail2">Tanggal: </label>
+        <div class="input-group date" id="datepicker">
+          <input type="text" class="form-control" name="tanggal_akhir" id="tanggal_akhir" value="2026-08-02" readonly>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail3">&nbsp; Komoditas : </label>
+        <select class="form-control" name="komoditas" id="komoditas">
+          <option value='39' >Bawang Merah / kg</option><option value='49' >Bawang Putih / kg</option><option value='4' >Beras Medium / kg</option><option value='2' selected>Beras Premium / kg</option><option value='73' >Besi Beton 10 mm (12/9m) / Btg</option><option value='74' >Besi Beton 12 mm (12/9m) / Btg</option><option value='71' >Besi Beton 6 mm (12/9m) / Btg</option><option value='72' >Besi Beton 8 mm (12/9m) / Btg</option><option value='48' >Buncis / kg</option><option value='38' >Cabe Merah Besar / kg</option><option value='37' >Cabe Merah Keriting / kg</option><option value='50' >Cabe Rawit Merah / kg</option><option value='14' >Daging Ayam Kampung / ekor</option><option value='13' >Daging Ayam Ras / kg</option><option value='12' >Daging Sapi Paha Belakang / kg</option><option value='27' >Garam Beryodium  Bata / buah</option><option value='28' >Garam Beryodium Halus / kg</option><option value='82' >GAS ELPIGI 3 Kg</option><option value='7' >Gula Kristal Putih / kg</option><option value='40' >Ikan Asin Teri / kg</option><option value='58' >Ikan Bandeng / kg</option><option value='62' >Ikan Cakalang / kg</option><option value='59' >Ikan Kembung / kg</option><option value='60' >Ikan Tongkol / kg</option><option value='61' >Ikan Tuna / kg</option><option value='35' >Indomie Rasa Kari Ayam / bungkus</option><option value='25' >Jagung Pipilan Kering / kg</option><option value='41' >Kacang Hijau / kg</option><option value='32' >Kacang Kedelai Impor / kg</option><option value='33' >Kacang Kedelai Lokal / kg</option><option value='42' >Kacang Tanah / kg</option><option value='67' >KAYU BALOK MERANTI (4 X 10)</option><option value='45' >Kentang / kg</option><option value='43' >Ketela Pohon / kg</option><option value='44' >Kol/kubis (/kg)</option><option value='10' >Minyak Goreng Curah / kg</option><option value='92' >Minyak Goreng Kemasan Premium / liter</option><option value='95' >Minyak Goreng Kemasan Sederhana / liter</option><option value='96' >Minyak Goreng MINYAKITA / liter</option><option value='81' >Paku Ukuran 10Cm /Kg</option><option value='76' >Paku Ukuran 2 Cm /Kg</option><option value='77' >Paku Ukuran 3Cm/Kg</option><option value='78' >Paku Ukuran 4Cm/Kg</option><option value='79' >Paku Ukuran 5Cm/Kg</option><option value='80' >Paku Ukuran 7Cm/Kg</option><option value='68' >Papan Meranti (4m X 3cm X 20mm)</option><option value='84' >Pupuk KCL  Non Subsidi / Kg</option><option value='85' >Pupuk NPK Non Subsidi / Kg</option><option value='86' >Pupuk SP 35 Non Subsidi / Kg</option><option value='87' >Pupuk Urea Non Subsidi / Kg</option><option value='88' >Pupuk ZA Non Subsidi / Kg</option><option value='91' >Semen Bosowa / 40Kg</option><option value='93' >Semen Dynamix / 40 Kg</option><option value='54' >Semen Gresik / 40 Kg</option><option value='89' >Semen Padang / 40Kg</option><option value='55' >Semen Tiga Roda / 40 Kg</option><option value='90' >Semen Tonasa / 40Kg</option><option value='23' >Susu Bubuk Merk Bendera (Instant) / (400 gr/dos)</option><option value='24' >Susu Bubuk Merk Indomilk (Instant) / (400 gr/dos)</option><option value='20' >Susu Kental Manis Merk Bendera (370 gr/kl)</option><option value='21' >Susu Kental Manis Merk Indomilk (370 gr/kl)</option><option value='17' >Telur Ayam Kampung / kg</option><option value='16' >Telur Ayam Ras / kg</option><option value='30' >Tepung Terigu / kg</option><option value='46' >Tomat / kg</option><option value='69' >Triplek (6mm)/ lembar</option><option value='47' >Wortel / kg</option>        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Tampilkan</button>
+    </form>
+    <hr />
+        <h4 class="page-header">Perbandingan harga komoditas "Beras Premium / kg" tanggal 2026-07-27 sampai 2026-08-02</h4>
+    <div id="contentloader">
+      <table class="table table-bordered table-striped table-condensed table-hover">
+        <tr>
+          <th>No</th>
+          <th>Lokasi</th>
+                      <th class="right">2026-07-27</th>
+                      <th class="right">2026-07-28</th>
+                      <th class="right">2026-07-29</th>
+                      <th class="right">2026-07-30</th>
+                      <th class="right">2026-07-31</th>
+                      <th class="right">2026-08-01</th>
+                      <th class="right">2026-08-02</th>
+          
+        </tr>
+
+        <tr>
+          <td style="font-weight: bold">#</td>
+          <td style="font-weight: bold">Propinsi Jawa Timur</td>
+                      <td class="right">15.000</td>
+                      <td class="right">15.002</td>
+                      <td class="right">15.004</td>
+                      <td class="right">15.004</td>
+                      <td class="right">15.022</td>
+                      <td class="right">15.022</td>
+                      <td class="right">15.022</td>
+          
+        </tr>
+
+
+                  <tr>
+            <td style="font-weight: bold">1</td>
+            <td style="font-weight: bold">Kota Surabaya</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>1.1</td>
+              <td>Pasar Genteng</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>1.2</td>
+              <td>Pasar Keputran</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>1.3</td>
+              <td>Pasar Pucang Anom</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>1.4</td>
+              <td>Pasar Soponyono</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>1.5</td>
+              <td>Pasar Tambahrejo</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>1.6</td>
+              <td>Pasar Wonokromo</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">2</td>
+            <td style="font-weight: bold">Kota Malang</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>2.1</td>
+              <td>Pasar Besar</td>
+                              <td class="right">17.000</td>
+                              <td class="right">17.000</td>
+                              <td class="right">17.000</td>
+                              <td class="right">17.000</td>
+                              <td class="right">17.000</td>
+                              <td class="right">17.000</td>
+                              <td class="right">17.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>2.2</td>
+              <td>Pasar Blimbing</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>2.3</td>
+              <td>Pasar Dinoyo</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+              
+            </tr>
+
+                    <tr>
+              <td>2.4</td>
+              <td>Pasar Klojen</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>2.5</td>
+              <td>Pasar Oro-oro Dowo</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>2.6</td>
+              <td>Pasar Tawangmangu</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">3</td>
+            <td style="font-weight: bold">Kota Kediri</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>3.1</td>
+              <td>Pasar Bandar</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>3.2</td>
+              <td>Pasar Pahing</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>3.3</td>
+              <td>Pasar Setono Betek</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">4</td>
+            <td style="font-weight: bold">Kabupaten Jember</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>4.1</td>
+              <td>Pasar Kreongan</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+              
+            </tr>
+
+                    <tr>
+              <td>4.2</td>
+              <td>Pasar Mangli</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>4.3</td>
+              <td>Pasar Tanjung</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>4.4</td>
+              <td>Pasar Tegal Besar</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>4.5</td>
+              <td>Pasar Wirolegi</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">5</td>
+            <td style="font-weight: bold">Kabupaten Bangkalan</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>5.1</td>
+              <td>Pasar Baru Bancaran</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>5.2</td>
+              <td>Pasar Ki Lemah Duwur</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>5.3</td>
+              <td>Pasar Senenan</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">6</td>
+            <td style="font-weight: bold">Kabupaten Banyuwangi</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>6.1</td>
+              <td>Pasar Banyuwangi</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>6.2</td>
+              <td>Pasar Blambangan</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>6.3</td>
+              <td>Pasar Genteng I</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>6.4</td>
+              <td>Pasar Jajag</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>6.5</td>
+              <td>Pasar Rogojampi</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">7</td>
+            <td style="font-weight: bold">Kabupaten Blitar</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>7.1</td>
+              <td>Pasar Lodoyo</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>7.2</td>
+              <td>Pasar Wlingi</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">8</td>
+            <td style="font-weight: bold">Kabupaten Bojonegoro</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>8.1</td>
+              <td>Pasar Kota Baru</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>8.2</td>
+              <td>Pasar Wisata (Pasar Kota Lama)</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">9</td>
+            <td style="font-weight: bold">Kabupaten Bondowoso</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>9.1</td>
+              <td>Pasar Induk Bondowoso</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>9.2</td>
+              <td>Pasar Maesan</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+              
+            </tr>
+
+                    <tr>
+              <td>9.3</td>
+              <td>Pasar Prajekan</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>9.4</td>
+              <td>Pasar Wonosari</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">10</td>
+            <td style="font-weight: bold">Kabupaten Gresik</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>10.1</td>
+              <td>Pasar Baru</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>10.2</td>
+              <td>Pasar Kota</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>10.3</td>
+              <td>Pasar Sidomoro</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+                              <td class="right">15.200</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">11</td>
+            <td style="font-weight: bold">Kabupaten Jombang</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>11.1</td>
+              <td>Pasar Cukir</td>
+                              <td class="right">15.800</td>
+                              <td class="right">15.800</td>
+                              <td class="right">15.800</td>
+                              <td class="right">15.800</td>
+                              <td class="right">15.800</td>
+                              <td class="right">15.800</td>
+                              <td class="right">15.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>11.2</td>
+              <td>Pasar Ploso</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>11.3</td>
+              <td>Pasar Pon</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">12</td>
+            <td style="font-weight: bold">Kabupaten Kediri</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>12.1</td>
+              <td>Pasar Gringging</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>12.2</td>
+              <td>Pasar Ngadiluwih</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>12.3</td>
+              <td>Pasar Pamenang</td>
+                              <td class="right">14.200</td>
+                              <td class="right">14.200</td>
+                              <td class="right">14.200</td>
+                              <td class="right">14.200</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">13</td>
+            <td style="font-weight: bold">Kabupaten Lamongan</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>13.1</td>
+              <td>Pasar Babat</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>13.2</td>
+              <td>Pasar Blimbing</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>13.3</td>
+              <td>Pasar Mantup</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>13.4</td>
+              <td>Pasar Sidoharjo</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">14</td>
+            <td style="font-weight: bold">Kabupaten Lumajang</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>14.1</td>
+              <td>Pasar Baru</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>14.2</td>
+              <td>Pasar Pasirian</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>14.3</td>
+              <td>Pasar Sukodono</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">15</td>
+            <td style="font-weight: bold">Kabupaten Madiun</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>15.1</td>
+              <td>Pasar Dolopo</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>15.2</td>
+              <td>Pasar Dungus</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>15.3</td>
+              <td>Pasar Pagotan</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>15.4</td>
+              <td>Pasar Umum Caruban</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">16</td>
+            <td style="font-weight: bold">Kabupaten Magetan</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>16.1</td>
+              <td>Pasar Gorang Gareng I Kawedanan</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>16.2</td>
+              <td>Pasar Maospati</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>16.3</td>
+              <td>Pasar Sayur I</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">17</td>
+            <td style="font-weight: bold">Kabupaten Malang</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>17.1</td>
+              <td>Pasar Karang Ploso</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>17.2</td>
+              <td>Pasar Kepanjen</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>17.3</td>
+              <td>Pasar Lawang</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>17.4</td>
+              <td>Pasar Singosari</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>17.5</td>
+              <td>Pasar Turen</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">18</td>
+            <td style="font-weight: bold">Kabupaten Mojokerto</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>18.1</td>
+              <td>Pasar Gempol  Kerep</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>18.2</td>
+              <td>Pasar Kedung Maling</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>18.3</td>
+              <td>Pasar Poh Jejer</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>18.4</td>
+              <td>Pasar Raya Mojosari</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">19</td>
+            <td style="font-weight: bold">Kabupaten Nganjuk</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>19.1</td>
+              <td>Pasar Berbek</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>19.2</td>
+              <td>Pasar Wage</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>19.3</td>
+              <td>Pasar Warujayeng</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">20</td>
+            <td style="font-weight: bold">Kabupaten Ngawi</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>20.1</td>
+              <td>Pasar Beran</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>20.2</td>
+              <td>Pasar Besar Ngawi</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>20.3</td>
+              <td>Pasar Paron</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">21</td>
+            <td style="font-weight: bold">Kabupaten Pacitan</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>21.1</td>
+              <td>Pasar Arjosari</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>21.2</td>
+              <td>Pasar Arjowinangun</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>21.3</td>
+              <td>Pasar Minulyo</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">22</td>
+            <td style="font-weight: bold">Kabupaten Pamekasan</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>22.1</td>
+              <td>Pasar Kolpajung</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>22.2</td>
+              <td>Pasar Waru</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">23</td>
+            <td style="font-weight: bold">Kabupaten Pasuruan</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>23.1</td>
+              <td>Pasar Bangil</td>
+                              <td class="right">14.300</td>
+                              <td class="right">14.300</td>
+                              <td class="right">14.300</td>
+                              <td class="right">14.300</td>
+                              <td class="right">14.300</td>
+                              <td class="right">14.300</td>
+                              <td class="right">14.300</td>
+              
+            </tr>
+
+                    <tr>
+              <td>23.2</td>
+              <td>Pasar Pandaan</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>23.3</td>
+              <td>Pasar Sukorejo</td>
+                              <td class="right">14.000</td>
+                              <td class="right">14.000</td>
+                              <td class="right">14.000</td>
+                              <td class="right">14.000</td>
+                              <td class="right">14.000</td>
+                              <td class="right">14.000</td>
+                              <td class="right">14.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">24</td>
+            <td style="font-weight: bold">Kabupaten Ponorogo</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>24.1</td>
+              <td>Pasar Legi</td>
+                              <td class="right">13.800</td>
+                              <td class="right">13.800</td>
+                              <td class="right">13.800</td>
+                              <td class="right">13.800</td>
+                              <td class="right">13.800</td>
+                              <td class="right">13.800</td>
+                              <td class="right">13.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>24.2</td>
+              <td>Pasar Sumoroto</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">25</td>
+            <td style="font-weight: bold">Kabupaten Probolinggo</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>25.1</td>
+              <td>Pasar Dringu</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>25.2</td>
+              <td>Pasar Leces</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>25.3</td>
+              <td>Pasar Semampir</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">26</td>
+            <td style="font-weight: bold">Kabupaten Sampang</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>26.1</td>
+              <td>Pasar Rongtengah</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>26.2</td>
+              <td>Pasar Srimangunan</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">27</td>
+            <td style="font-weight: bold">Kabupaten Sidoarjo</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>27.1</td>
+              <td>Pasar Krian</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.800</td>
+                              <td class="right">15.800</td>
+                              <td class="right">15.800</td>
+              
+            </tr>
+
+                    <tr>
+              <td>27.2</td>
+              <td>Pasar Larangan</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">28</td>
+            <td style="font-weight: bold">Kabupaten Situbondo</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>28.1</td>
+              <td>Pasar Ardirejo</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>28.2</td>
+              <td>Pasar Mimbaan Baru</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+                              <td class="right">16.200</td>
+              
+            </tr>
+
+                    <tr>
+              <td>28.3</td>
+              <td>Pasar Sumber Kolak</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">29</td>
+            <td style="font-weight: bold">Kabupaten Sumenep</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>29.1</td>
+              <td>Pasar Anom Baru</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+                              <td class="right">15.400</td>
+              
+            </tr>
+
+                    <tr>
+              <td>29.2</td>
+              <td>Pasar Bangkal</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">30</td>
+            <td style="font-weight: bold">Kabupaten Trenggalek</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>30.1</td>
+              <td>Pasar Basah</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>30.2</td>
+              <td>Pasar Subuh</td>
+                              <td class="right">13.200</td>
+                              <td class="right">13.200</td>
+                              <td class="right">13.200</td>
+                              <td class="right">13.200</td>
+                              <td class="right">13.200</td>
+                              <td class="right">13.200</td>
+                              <td class="right">13.200</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">31</td>
+            <td style="font-weight: bold">Kabupaten Tuban</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>31.1</td>
+              <td>Pasar Bangilan</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>31.2</td>
+              <td>Pasar Baru Tuban</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>31.3</td>
+              <td>Pasar Jatirogo</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">32</td>
+            <td style="font-weight: bold">Kabupaten Tulungagung</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>32.1</td>
+              <td>Pasar Bandung</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>32.2</td>
+              <td>Pasar Ngemplak</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>32.3</td>
+              <td>Pasar Ngunut</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>32.4</td>
+              <td>Pasar Tamanan</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">33</td>
+            <td style="font-weight: bold">Kota Batu</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>33.1</td>
+              <td>Pasar Besar Kota Batu</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>33.2</td>
+              <td>Pasar Gentengan</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+                              <td class="right">15.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>33.3</td>
+              <td>Pasar Pesanggrahan</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>33.4</td>
+              <td>Pasar Songgoriti</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">34</td>
+            <td style="font-weight: bold">Kota Blitar</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>34.1</td>
+              <td>Pasar Legi</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                    <tr>
+              <td>34.2</td>
+              <td>Pasar Pon</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+                              <td class="right">14.900</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">35</td>
+            <td style="font-weight: bold">Kota Madiun</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>35.1</td>
+              <td>Pasar Besar</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+                              <td class="right">14.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>35.2</td>
+              <td>Pasar Sleko</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>35.3</td>
+              <td>Pasar Srijaya</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">36</td>
+            <td style="font-weight: bold">Kota Mojokerto</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>36.1</td>
+              <td>Pasar Prajuritkulon</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>36.2</td>
+              <td>Pasar Tanjung Anyar</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+                              <td class="right">14.800</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">37</td>
+            <td style="font-weight: bold">Kota Pasuruan</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>37.1</td>
+              <td>Pasar Besar</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+              
+            </tr>
+
+                    <tr>
+              <td>37.2</td>
+              <td>Pasar Kebonagung</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+                              <td class="right">14.700</td>
+              
+            </tr>
+
+                  <tr>
+            <td style="font-weight: bold">38</td>
+            <td style="font-weight: bold">Kota Probolinggo</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+                          <td class="right">-</td>
+            
+          </tr>
+
+                      <tr>
+              <td>38.1</td>
+              <td>Pasar Baru</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+                              <td class="right">15.000</td>
+              
+            </tr>
+
+                    <tr>
+              <td>38.2</td>
+              <td>Pasar Kronong</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+                              <td class="right">16.500</td>
+              
+            </tr>
+
+                    <tr>
+              <td>38.3</td>
+              <td>Pasar Wonoasih</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+                              <td class="right">16.000</td>
+              
+            </tr>
+
+        
+      </table>
+
+    </div>
+      </div>
+</div>
+  </div> <!-- /container -->
+
+
+  <!-- /container -->
+  <div class="footer">
+    <div class="container">
+      <p class="text-muted">
+        &copy 2011 - 2026 . dikelola Disperindag Jatim, Hak Cipta dilindungi      </p>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript
+
+    ================================================== -->
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+      Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/66305b651ec1082f04e8fa09/1hsmea1se';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NHTXQ5PN3B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-NHTXQ5PN3B');
+  </script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"1f9db69a91b34a5e930231131fd93039","spa":2}' crossorigin="anonymous"></script>
+</body>
+
+</html>
